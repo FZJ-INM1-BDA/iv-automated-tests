@@ -1,0 +1,31 @@
+{
+  "name": "test-puppeteer",
+  "version": "1.0.0",
+  "description": "Automated test with puppeteer",
+  "main": "index.js",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "dotenv": "^8.1.0",
+    "node-fetch": "^2.6.0",
+    "nodemailer": "^6.3.0",
+    "puppeteer": "^1.20.0",
+    "puppeteer-firefox": "^0.5.0"
+  },
+  "devDependencies": {
+    "mocha": "^6.2.0"
+  },
+  "scripts": {
+    "test": "mocha --recursive test --timeout 1000000",
+    "server": "http-server src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fsdavid/iv-automated-tests.git"
+  },
+  "author": "Daviti Gogshelidze",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fsdavid/iv-automated-tests/issues"
+  },
+  "homepage": "https://github.com/fsdavid/iv-automated-tests#readme"
+}
