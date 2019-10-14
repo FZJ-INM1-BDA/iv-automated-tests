@@ -111,11 +111,11 @@ exports.selectTAndP = async function selectTAndP() {
         checkRegionSelectionByTwoRegion.bind(
             this,
             buttonTextForParcellation = ' Waxholm Space rat brain MRI/DTI ',
-            area1Coordinates = [300, 100],
-            area1Name = 'rh_SP-SM_0',
-            area2Coordinates = [640, 540],
-            area2Name = 'lh_PoCi-PrCu_0',
-            waitAfterPageLoads = 2000
+            area1Coordinates = [350, 170],
+            area1Name = 'neocortex',
+            area2Coordinates = [320, 560],
+            area2Name = 'corpus callosum and associated subcortical white matter',
+            waitAfterPageLoads = 3000
         )
     )
 
