@@ -81,7 +81,9 @@ exports.selectTAndP = async function selectTAndP() {
                 area1Name = 'Area 7M (SPL) - left hemisphere',
                 area2Coordinates = [540, 550],
                 area2Name = 'Area p32 (pACC) - left hemisphere',
-                waitAfterPageLoads = 2000
+                waitAfterPageLoads = 2000,
+                area1NameAdditionalComment=' (publicP)',
+                area2NameAdditionalComment=' (publicP)'
             )
         }
     )
@@ -201,7 +203,7 @@ exports.selectTAndP = async function selectTAndP() {
 }
 
 
-const checkRegionSelectionByTwoRegion = async (buttonTextForParcellation, area1Coordinates, area1Name, area2Coordinates, area2Name, waitAfterPageLoads) => {
+const checkRegionSelectionByTwoRegion = async (buttonTextForParcellation, area1Coordinates, area1Name, area2Coordinates, area2Name, waitAfterPageLoads, area1NameAdditionalComment = '', area2NameAdditionalComment= '') => {
     // page = await browser.newPage()
     await page.setViewport({width: 800, height: 798, deviceScaleFactor: 1})
     // ToDo Implemnt {waitUntil: 'networkidle2'} when it will be implemented
@@ -227,7 +229,7 @@ const checkRegionSelectionByTwoRegion = async (buttonTextForParcellation, area1C
     if (hoverTextCheck1) {
         await page.waitFor(500)
         const TextOfHoverTextCheck1 = await page.evaluate(element => element.textContent, hoverTextCheck1)
-        expect(TextOfHoverTextCheck1.trim()).to.equal(area1Name)
+        expect(TextOfHoverTextCheck1.trim()).to.equal(area1NameAdditionalComment? area1Name + area1NameAdditionalComment : area1Name)
     }
 
     await page.waitFor(500)
@@ -244,6 +246,6 @@ const checkRegionSelectionByTwoRegion = async (buttonTextForParcellation, area1C
     if (hoverTextCheck2) {
         await page.waitFor(500)
         const TextOfHoverTextCheck2 = await page.evaluate(element => element.textContent, hoverTextCheck2)
-        expect(TextOfHoverTextCheck2.trim()).to.equal(area2Name)
+        expect(TextOfHoverTextCheck2.trim()).to.equal(area2NameAdditionalComment? area2Name + area2NameAdditionalComment : area2Name)
     }
 }

@@ -11,6 +11,7 @@ const transporter = nodemailer.createTransport({
     }
 })
 
+const maillist = process.env.TEAM_EMAILS.split(';')
 
 const logError = async (data = {}, screenShot, url = 'http://logger-pmap-service.apps-dev.hbp.eu/ivautomated.testing.error') => {
 
@@ -27,7 +28,7 @@ const logError = async (data = {}, screenShot, url = 'http://logger-pmap-service
 const sendEmail = (data, screenShot) => {
     transporter.sendMail({
         from: process.env.EMAIL,
-        to: 'd.gogshelidze@fz-juelich.de',
+        to: maillist,
         subject: 'Interactive Viewer Automated test error',
         text: 'There is error founded with Automated testing of Interactive Viewer. \n\nTest: ' + data.test + '\nCase: ' + data.case + '\nError: ' + data.error,
         attachments: [{
