@@ -1,4 +1,5 @@
 const {logError} = require('./helpers/logError')
+require('dotenv').config()
 
 let page
 
@@ -16,7 +17,7 @@ exports.prepareForTesting = function() {
     it('Agreement of cache', async function() {
         page = await browser.newPage()
         await page.setViewport({ width: 800, height: 798, deviceScaleFactor: 1})
-        await page.goto('https://interactive-viewer-next.apps-dev.hbp.eu/', {waitUntil: 'networkidle2'})
+        await page.goto(process.env.TEST_URL, {waitUntil: 'networkidle2'})
 
         // Apply Cache
         await page.waitForXPath('//button[contains(.,\'Ok\')]', 5000)
@@ -30,7 +31,7 @@ exports.prepareForTesting = function() {
     it('agreement of using Datasets', async function() {
         page = await browser.newPage()
         await page.setViewport({ width: 800, height: 798, deviceScaleFactor: 1})
-        await page.goto('https://interactive-viewer-next.apps-dev.hbp.eu/', {waitUntil: 'networkidle2'})
+        await page.goto(process.env.TEST_URL, {waitUntil: 'networkidle2'})
 
         // Choose MNI Colin 27
         await page.waitForXPath("/html[1]/body[1]/atlas-viewer[@class=\"ng-tns-c0-0\"]/div[@class=\"atlas-container ng-tns-c0-0 ng-star-inserted\"]/ui-nehuba-container[@class=\"ng-tns-c0-0\"]/ui-splashscreen[@class=\"ng-star-inserted\"]/div[@class=\"m-5 d-flex flex-row flex-wrap justify-content-center align-items-stretch pe-none\"]/mat-card[@class=\"m-3 col-md-12 col-lg-6 pe-all mw-400px mat-card mat-ripple ng-star-inserted\"]/mat-card-header[@class=\"mat-card-header\"][count(. | //*[(text() = ' MNI Colin 27 ' or . = ' MNI Colin 27 ')]) = count(//*[(text() = ' MNI Colin 27 ' or . = ' MNI Colin 27 ')])]", 5000)

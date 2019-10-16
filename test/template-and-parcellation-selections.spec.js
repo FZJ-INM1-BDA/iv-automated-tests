@@ -2,6 +2,7 @@ const {expect} = require('chai')
 const {logError} = require('./helpers/logError')
 const _ = require('lodash')
 const globalVariables = _.pick(global, ['browser', 'expect'])
+require('dotenv').config()
 
 
 let page
@@ -151,7 +152,7 @@ exports.selectTAndP = async function selectTAndP() {
                 area1Name = 'lateral entorhinal cortex',
                 area2Coordinates = [300, 200],
                 area2Name = 'dentate gyrus',
-                waitAfterPageLoads = 10000)
+                waitAfterPageLoads = 15000)
         }
     )
 
@@ -164,7 +165,7 @@ exports.selectTAndP = async function selectTAndP() {
                 area1Name = 'inner ear',
                 area2Coordinates = [550, 550],
                 area2Name = 'corpus callosum and associated subcortical white matter',
-                waitAfterPageLoads = 15000)
+                waitAfterPageLoads = 18000)
         }
     )
 
@@ -204,7 +205,7 @@ const checkRegionSelectionByTwoRegion = async (buttonTextForParcellation, area1C
     // page = await browser.newPage()
     await page.setViewport({width: 800, height: 798, deviceScaleFactor: 1})
     // ToDo Implemnt {waitUntil: 'networkidle2'} when it will be implemented
-    await page.goto('https://interactive-viewer-next.apps-dev.hbp.eu/', {waitUntil: 'networkidle2'})
+    await page.goto(process.env.TEST_URL, {waitUntil: 'networkidle2'})
     await page.waitFor(2000)
 
     // Choose ICBM 2009c Nonlinear Asymmetric ( JuBrain Cytoarchitectonic Atlas )
