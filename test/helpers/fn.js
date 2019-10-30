@@ -23,15 +23,12 @@ const acceptCookieIfExists = async ({ page }) => {
 }
 
 const acknowledgeTosIfExists = async ({ page }) => {
-  await page.waitFor(200)
   try {
-    const exists = await waitForText({ page, text: 'Knowledge Graph ToS', options: { timeout: 500 } })
-    if (exists) {
-      const [ok] = await page.$x('//button[contains(.,\'Ok\')]')
-      await ok.click()
-    }
-  }catch(e){
-    // can't find kg tos, no big deal
+    await page.waitFor(500)
+    const [okbtn] = await page.$x(`//button[contains(.,'Ok')]`)
+    await okbtn.click()
+  }catch(e) {
+    // can't find ok btn, no biggie
   }
 }
 
