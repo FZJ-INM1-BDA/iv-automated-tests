@@ -32,7 +32,7 @@ describe('databrowser', () => {
   before(async () => {
     browser = await pptr.launch({
       ...opts,
-      headless: false
+      // headless: false
     })
   })
 
