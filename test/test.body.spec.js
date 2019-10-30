@@ -5,14 +5,7 @@ const globalVariables = _.pick(global, ['browser', 'expect'])
 const {prepareForTesting} = require('./prepare.spec')
 const {selectTAndP} = require('./template-and-parcellation-selections.spec')
 
-// puppeteer options
-const opts = {
-    headless: true,
-    slowMo: 100,
-    timeout: 10000,
-    args: ['--no-sandbox', '--disable-setuid-sandbox', '--window-size=800,798'],
-
-}
+const { opts } = require('./helpers/constants')
 
 describe('Interactive Viewer Tests', function() {
     describe('Making ready browsers', prepareForTesting.bind())
