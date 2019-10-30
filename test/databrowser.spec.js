@@ -71,14 +71,14 @@ describe('databrowser', () => {
         await page.keyboard.press('Backspace')
         await page.keyboard.press('Escape')
   
-        await page.waitFor(100)
+        await page.waitFor(500)
   
         const [databrowser] = await page.$x(`//data-browser`)
         if (!databrowser) return
         while(await databrowser.$(`.fa-trash`)){
           const trash = await databrowser.$(`.fa-trash`)
           await trash.click()
-          await page.waitFor(100)
+          await page.waitFor(200)
         }
       })
   
@@ -96,7 +96,7 @@ describe('databrowser', () => {
           await sq.click()
           
           await acknowledgeTosIfExists({ page })
-  
+
           const receptors = await page.$x(`//single-dataset-list-view[contains(.,'receptor')]`)
   
           expect(receptors.length).to.be.greaterThan(0)
