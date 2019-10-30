@@ -99,7 +99,7 @@ describe('databrowser', () => {
   
           const receptors = await page.$x(`//single-dataset-list-view[contains(.,'receptor')]`)
   
-          expect(receptors.length).to.be.greaterThan(1)
+          expect(receptors.length).to.be.greaterThan(0)
         })
       }
   
