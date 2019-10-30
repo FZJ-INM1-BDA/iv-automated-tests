@@ -3,6 +3,7 @@ require('dotenv').config()
 
 let page
 
+const { pageOpts } = require('./helpers/constants')
 
 exports.prepareForTesting = function() {
     afterEach(async function() {
@@ -16,7 +17,7 @@ exports.prepareForTesting = function() {
 
     it('Agreement of cache', async function() {
         page = await browser.newPage()
-        await page.setViewport({ width: 800, height: 798, deviceScaleFactor: 1})
+        await page.setViewport(pageOpts)
         await page.goto(process.env.TEST_URL, {waitUntil: 'networkidle2'})
 
         // Apply Cache
@@ -30,7 +31,7 @@ exports.prepareForTesting = function() {
 
     it('agreement of using Datasets', async function() {
         page = await browser.newPage()
-        await page.setViewport({ width: 800, height: 798, deviceScaleFactor: 1})
+        await page.setViewport(pageOpts)
         await page.goto(process.env.TEST_URL, {waitUntil: 'networkidle2'})
 
         await page.waitFor(500)
