@@ -182,7 +182,7 @@ exports.selectTAndP = async function selectTAndP() {
                 area1Name = 'Primary somatosensory area, barrel field, layer 4',
                 area2Coordinates = [590, 120],
                 area2Name = 'Retrosplenial area, ventral part, layer 2/3',
-                waitAfterPageLoads = 20000)
+                waitAfterPageLoads = 30000)
         }
     )
 
