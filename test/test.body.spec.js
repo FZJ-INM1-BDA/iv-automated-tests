@@ -4,12 +4,16 @@ const _ = require('lodash')
 const globalVariables = _.pick(global, ['browser', 'expect'])
 const {prepareForTesting} = require('./prepare.spec')
 const {selectTAndP} = require('./template-and-parcellation-selections.spec')
+const {testDatasetNumberByRegions} = require('./testDatasetNumberByRegions.spec')
+const {hbpAuthentication} = require('./hbpAuthentication.spec')
 
 const { opts } = require('./helpers/constants')
 
 describe('Interactive Viewer Tests', function() {
     describe('Making ready browsers', prepareForTesting.bind())
     describe('Template and Parcellation Selection', selectTAndP.bind())
+    // describe('Template and Parcellation Selection', testDatasetNumberByRegions.bind())
+    describe('Test HBP authentication', hbpAuthentication.bind())
     // expose variables
     before (async function () {
         global.expect = expect
