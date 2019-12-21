@@ -28,7 +28,7 @@ const areasShouldHaveRecptor = [
 ]
 
 let browser, page
-describe('databrowser', () => {
+describe(`testing ${TEST_URL}: databrowser`, () => {
   before(async () => {
     browser = await pptr.launch({
       ...opts,
