@@ -64,7 +64,7 @@ exports.hbpAuthentication = async function hbpAuthentication() {
 
             await page.waitFor(1000)
 
-            expect(loggedInObjText.trim()).to.equal('Logged in as inm1-bda service account inm1-bda service account.  Logout')
+            expect(loggedInObjText.trim()).to.equal('Logged in as inm1-bda service account.  Logout')
 
         }
     )
