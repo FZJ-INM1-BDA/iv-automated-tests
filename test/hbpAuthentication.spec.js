@@ -38,10 +38,8 @@ exports.hbpAuthentication = async function hbpAuthentication() {
 
             await page.waitFor(1000)
 
-            await page.waitForSelector('#j_username')
-            await page.waitForSelector('#j_password')
-
-            await page.waitFor(1000)
+            await page.waitForXPath("//input[@id='j_username']", 3000, {visible: true})
+            await page.waitForXPath("//input[@id='j_password']", 3000, {visible: true})
         }
     )
 }
