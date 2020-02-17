@@ -41,6 +41,7 @@ exports.hbpAuthentication = async function hbpAuthentication() {
             await page.waitForSelector('#j_username')
             await page.waitForSelector('#j_password')
 
+            await page.waitFor(1000)
         }
     )
 }
