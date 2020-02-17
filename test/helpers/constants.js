@@ -1,6 +1,6 @@
 // puppeteer options
 exports.opts = {
-  headless: true,
+  headless: false,
   slowMo: 100,
   timeout: 10000,
   args: ['--no-sandbox', '--disable-setuid-sandbox', '--window-size=800,798'],
