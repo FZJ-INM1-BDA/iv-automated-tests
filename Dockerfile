@@ -1,4 +1,4 @@
-FROM node:8-slim
+FROM node:12
 
 LABEL maintainer="Daviti Gogshelidze <d.gogshelidze@fz-juelich.de"
 
