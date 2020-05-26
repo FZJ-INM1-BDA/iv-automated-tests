@@ -24,7 +24,7 @@ exports.hbpAuthentication = async function hbpAuthentication() {
             await page.goto(process.env.TEST_URL, {waitUntil: 'networkidle2'})
             await page.waitFor(1000)
 
-            const loginButton = "/html/body/atlas-viewer/div/div[2]/signin-banner/div/div[2]/button"
+            const loginButton = "/html/body/atlas-viewer/div/div[2]/signin-banner/div/div[3]/button"
             await page.waitForXPath(loginButton, 1000)
             const [loginButtonObj] = await page.$x(loginButton)
             if (loginButtonObj) loginButtonObj.click()

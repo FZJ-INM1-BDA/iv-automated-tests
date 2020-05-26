@@ -7,7 +7,7 @@ const acceptCookieIfExists = async ({ page }) => {
   try{
     const cookie = await waitForText({
       page,
-      text: 'Cookie Disclaimer',
+      text: 'Privacy Policy',
       options: {
         timeout: 500
       }

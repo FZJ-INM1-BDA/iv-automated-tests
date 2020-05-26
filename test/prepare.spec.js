@@ -47,9 +47,11 @@ exports.prepareForTesting = function() {
         await page.waitFor(500)
 
         // Agreement of Dataset use
-        await page.waitForXPath("id(\"mat-dialog-0\")/mat-dialog-actions[@class=\"justify-content-end mat-dialog-actions ng-tns-c0-0 ng-star-inserted\"]/button[@class=\"ng-tns-c0-0 mat-raised-button mat-primary cdk-focused cdk-program-focused\"]/span[@class=\"mat-button-wrapper\"][count(. | //*[(text() = ' Ok ' or . = ' Ok ')]) = count(//*[(text() = ' Ok ' or . = ' Ok ')])]", 5000)
-        const [agreeDataset] = await page.$x("id(\"mat-dialog-0\")/mat-dialog-actions[@class=\"justify-content-end mat-dialog-actions ng-tns-c0-0 ng-star-inserted\"]/button[@class=\"ng-tns-c0-0 mat-raised-button mat-primary cdk-focused cdk-program-focused\"]/span[@class=\"mat-button-wrapper\"][count(. | //*[(text() = ' Ok ' or . = ' Ok ')]) = count(//*[(text() = ' Ok ' or . = ' Ok ')])]")
-        if(agreeDataset) agreeDataset.click()
+
+        await page.waitForXPath('//button[contains(.,\'Ok\')]', 5000)
+        const [pressOkButton] = await page.$x('//button[contains(.,\'Ok\')]')
+        if(pressOkButton) pressOkButton.click()
+
 
         await page.waitFor(500)
     })
